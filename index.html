@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A keepsake gallery where images open personal messages."
+    />
+    <title>Hady's Memory Keepsake</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="site-header">
+        <p class="eyebrow">Memory keepsake</p>
+        <h1>Hady's Memory Keepsake</h1>
+      </header>
+
+      <section class="gallery-section" aria-label="Keepsake gallery">
+        <div id="gallery" class="gallery" aria-live="polite"></div>
+        <p id="emptyState" class="empty-state" hidden>
+          Add image entries to <code>data/images.json</code> to begin.
+        </p>
+      </section>
+    </main>
+
+    <dialog id="keepsakeDialog" class="dialog">
+      <button class="dialog-close" type="button" aria-label="Close message">
+        &times;
+      </button>
+      <div class="dialog-media-wrap">
+        <img id="dialogImage" class="dialog-image" alt="" />
+      </div>
+      <div id="dialogText" class="dialog-text"></div>
+    </dialog>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "image-001",
+    "src": "assets/images/image-001.jpg",
+    "title": "Image 001",
+    "alt": "Keepsake image 001"
+  },
+  {
+    "id": "image-002",
+    "src": "assets/images/image-002.jpg",
+    "title": "Image 002",
+    "alt": "Keepsake image 002"
+  },
+  {
+    "id": "image-003",
+    "src": "assets/images/image-003.jpg",
+    "title": "Image 003",
+    "alt": "Keepsake image 003"
+  },
+  {
+    "id": "image-004",
+    "src": "assets/images/image-004.jpg",
+    "title": "Image 004",
+    "alt": "Keepsake image 004"
+  },
+  {
+    "id": "image-005",
+    "src": "assets/images/image-005.jpg",
+    "title": "Image 005",
+    "alt": "Keepsake image 005"
+  },
+  {
+    "id": "image-006",
+    "src": "assets/images/image-006.jpg",
+    "title": "Image 006",
+    "alt": "Keepsake image 006"
+  }
+]
