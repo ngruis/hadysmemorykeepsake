@@ -34,7 +34,8 @@
     "alt": "IMG_8104.HEIC",
     "driveId": "1rjPOpDvGNu1oxnkYeKjBk0UgWfexe7K2",
     "sourceName": "IMG_8104.HEIC",
-    "mimeType": "image/heif"
+    "mimeType": "image/heif",
+    "rotation": 90
   },
   {
     "id": "image-005",
@@ -52,7 +53,8 @@
     "alt": "IMG_0753.HEIC",
     "driveId": "1HRG5XyiVEwkR7XOixqOxYTAdnzJS7_QW",
     "sourceName": "IMG_0753.HEIC",
-    "mimeType": "image/heif"
+    "mimeType": "image/heif",
+    "rotation": 180
   },
   {
     "id": "image-007",
@@ -196,15 +198,6 @@
     "alt": "IMG_5292.HEIC",
     "driveId": "19ok2yv616srh0cPMY__J321-z5y2l00H",
     "sourceName": "IMG_5292.HEIC",
-    "mimeType": "image/heif"
-  },
-  {
-    "id": "image-023",
-    "src": "https://drive.google.com/thumbnail?id=1v3Gv_cKwjM-SSx0kX-5P5x8s0o_prVu7&sz=w1200",
-    "title": "IMG_5285.HEIC",
-    "alt": "IMG_5285.HEIC",
-    "driveId": "1v3Gv_cKwjM-SSx0kX-5P5x8s0o_prVu7",
-    "sourceName": "IMG_5285.HEIC",
     "mimeType": "image/heif"
   },
   {
