@@ -142,14 +142,21 @@ h1 {
 }
 
 .dialog {
-  width: min(720px, calc(100% - 28px));
-  max-height: min(820px, calc(100vh - 28px));
+  width: min(980px, calc(100% - 24px));
+  max-height: min(900px, calc(100vh - 24px));
   padding: 0;
   border: 0;
   border-radius: 4px;
   background: var(--panel);
   color: var(--ink);
   box-shadow: var(--shadow);
+}
+
+.dialog.is-image-only {
+  width: min(1180px, calc(100% - 16px));
+  max-height: calc(100vh - 16px);
+  background: transparent;
+  box-shadow: none;
 }
 
 .dialog[open] {
@@ -181,11 +188,19 @@ h1 {
   background: #f1f1f1;
 }
 
+.dialog.is-image-only .dialog-media-wrap {
+  background: transparent;
+}
+
 .dialog-image {
   display: block;
   width: 100%;
-  max-height: 56vh;
+  max-height: 68vh;
   object-fit: contain;
+}
+
+.dialog.is-image-only .dialog-image {
+  max-height: calc(100vh - 16px);
 }
 
 .dialog-text {

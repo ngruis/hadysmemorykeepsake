@@ -23,6 +23,7 @@ function openKeepsake(image, message) {
   dialogImage.src = image.src;
   dialogImage.alt = image.alt || image.title || "";
   setImageRotation(dialogImage, image);
+  dialog.classList.toggle("is-image-only", !message);
 
   if (message) {
     dialogText.hidden = false;
@@ -40,10 +41,11 @@ function openKeepsake(image, message) {
 
 function renderGallery(images, messages) {
   const messageMap = getMessageMap(messages);
+  const orderedImages = getOrderedImages(images, messageMap);
   gallery.innerHTML = "";
   emptyState.hidden = images.length > 0;
 
-  images.forEach((image) => {
+  orderedImages.forEach((image) => {
     const message = messageMap.get(image.id);
     const card = document.createElement("button");
     card.className = "keepsake-card";
@@ -84,6 +86,19 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value);
+}
+
+function getOrderedImages(images, messageMap) {
+  return [...images].sort((left, right) => {
+    const leftHasMessage = messageMap.has(left.id);
+    const rightHasMessage = messageMap.has(right.id);
+
+    if (leftHasMessage === rightHasMessage) {
+      return 0;
+    }
+
+    return leftHasMessage ? -1 : 1;
+  });
 }
 
 function setImageRotation(element, image) {
