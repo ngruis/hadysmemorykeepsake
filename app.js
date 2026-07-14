@@ -59,7 +59,7 @@ function openGalleryImage(index) {
 
 function renderGallery(images, messages) {
   const messageMap = getMessageMap(messages);
-  const orderedImages = getOrderedImages(images, messageMap);
+  const orderedImages = getOrderedImages(images, messages);
   activeImages = orderedImages;
   activeMessageMap = messageMap;
   gallery.innerHTML = "";
@@ -108,16 +108,26 @@ function escapeAttribute(value) {
   return escapeHtml(value);
 }
 
-function getOrderedImages(images, messageMap) {
-  return [...images].sort((left, right) => {
-    const leftHasMessage = messageMap.has(left.id);
-    const rightHasMessage = messageMap.has(right.id);
+function getOrderedImages(images, messages) {
+  const messageOrder = new Map(
+    messages.map((message, index) => [message.imageId, index]),
+  );
 
-    if (leftHasMessage === rightHasMessage) {
-      return 0;
+  return [...images].sort((left, right) => {
+    const leftMessageIndex = messageOrder.get(left.id);
+    const rightMessageIndex = messageOrder.get(right.id);
+    const leftHasMessage = leftMessageIndex !== undefined;
+    const rightHasMessage = rightMessageIndex !== undefined;
+
+    if (leftHasMessage && rightHasMessage) {
+      return leftMessageIndex - rightMessageIndex;
     }
 
-    return leftHasMessage ? -1 : 1;
+    if (leftHasMessage !== rightHasMessage) {
+      return leftHasMessage ? -1 : 1;
+    }
+
+    return 0;
   });
 }
 
