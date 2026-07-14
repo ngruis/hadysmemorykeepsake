@@ -184,6 +184,32 @@ h1 {
   cursor: pointer;
 }
 
+.dialog-nav {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  transform: translateY(-50%);
+}
+
+.dialog-nav-prev {
+  left: max(12px, calc((100vw - 1180px) / 2 - 60px));
+}
+
+.dialog-nav-next {
+  right: max(12px, calc((100vw - 1180px) / 2 - 60px));
+}
+
 .dialog-media-wrap {
   background: #f1f1f1;
 }
@@ -254,5 +280,19 @@ h1 {
 
   .dialog-text {
     padding: 22px;
+  }
+
+  .dialog-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.7rem;
+  }
+
+  .dialog-nav-prev {
+    left: 8px;
+  }
+
+  .dialog-nav-next {
+    right: 8px;
   }
 }

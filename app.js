@@ -4,6 +4,12 @@ const dialog = document.querySelector("#keepsakeDialog");
 const dialogImage = document.querySelector("#dialogImage");
 const dialogText = document.querySelector("#dialogText");
 const closeButton = dialog.querySelector(".dialog-close");
+const previousButton = dialog.querySelector(".dialog-nav-prev");
+const nextButton = dialog.querySelector(".dialog-nav-next");
+
+let activeImages = [];
+let activeMessageMap = new Map();
+let activeImageIndex = 0;
 
 async function loadJson(path) {
   const response = await fetch(path);
@@ -19,7 +25,7 @@ function getMessageMap(messages) {
   return new Map(messages.map((message) => [message.imageId, message]));
 }
 
-function openKeepsake(image, message) {
+function openKeepsake(image, message, shouldShowModal = true) {
   dialogImage.src = image.src;
   dialogImage.alt = image.alt || image.title || "";
   setImageRotation(dialogImage, image);
@@ -36,16 +42,30 @@ function openKeepsake(image, message) {
     dialogText.innerHTML = "";
   }
 
-  dialog.showModal();
+  if (shouldShowModal) {
+    dialog.showModal();
+  }
+}
+
+function openGalleryImage(index) {
+  if (!activeImages.length) {
+    return;
+  }
+
+  activeImageIndex = (index + activeImages.length) % activeImages.length;
+  const image = activeImages[activeImageIndex];
+  openKeepsake(image, activeMessageMap.get(image.id), !dialog.open);
 }
 
 function renderGallery(images, messages) {
   const messageMap = getMessageMap(messages);
   const orderedImages = getOrderedImages(images, messageMap);
+  activeImages = orderedImages;
+  activeMessageMap = messageMap;
   gallery.innerHTML = "";
   emptyState.hidden = images.length > 0;
 
-  orderedImages.forEach((image) => {
+  orderedImages.forEach((image, index) => {
     const message = messageMap.get(image.id);
     const card = document.createElement("button");
     card.className = "keepsake-card";
@@ -70,7 +90,7 @@ function renderGallery(images, messages) {
       card.classList.add("is-missing-image");
     });
 
-    card.addEventListener("click", () => openKeepsake(image, message));
+    card.addEventListener("click", () => openGalleryImage(index));
     gallery.append(card);
   });
 }
@@ -106,6 +126,25 @@ function setImageRotation(element, image) {
 }
 
 closeButton.addEventListener("click", () => dialog.close());
+
+previousButton.addEventListener("click", () => openGalleryImage(activeImageIndex - 1));
+nextButton.addEventListener("click", () => openGalleryImage(activeImageIndex + 1));
+
+document.addEventListener("keydown", (event) => {
+  if (!dialog.open) {
+    return;
+  }
+
+  if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    openGalleryImage(activeImageIndex - 1);
+  }
+
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    openGalleryImage(activeImageIndex + 1);
+  }
+});
 
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) {
