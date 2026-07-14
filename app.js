@@ -22,17 +22,17 @@ function getMessageMap(messages) {
 function openKeepsake(image, message) {
   dialogImage.src = image.src;
   dialogImage.alt = image.alt || image.title || "";
+  setImageRotation(dialogImage, image);
 
   if (message) {
+    dialogText.hidden = false;
     dialogText.innerHTML = `
       <h2>${escapeHtml(message.title || "A memory")}</h2>
       <p>${escapeHtml(message.message || "")}</p>
     `;
   } else {
-    dialogText.innerHTML = `
-      <h2>${escapeHtml(image.title || "Memory")}</h2>
-      <p>This image does not have a message yet.</p>
-    `;
+    dialogText.hidden = true;
+    dialogText.innerHTML = "";
   }
 
   dialog.showModal();
@@ -61,7 +61,10 @@ function renderGallery(images, messages) {
       ${message ? '<span class="message-mark" aria-hidden="true">+</span>' : ""}
     `;
 
-    card.querySelector("img").addEventListener("error", () => {
+    const cardImage = card.querySelector("img");
+    setImageRotation(cardImage, image);
+
+    cardImage.addEventListener("error", () => {
       card.classList.add("is-missing-image");
     });
 
@@ -81,6 +84,10 @@ function escapeHtml(value) {
 
 function escapeAttribute(value) {
   return escapeHtml(value);
+}
+
+function setImageRotation(element, image) {
+  element.style.transform = image.rotation ? `rotate(${image.rotation}deg)` : "";
 }
 
 closeButton.addEventListener("click", () => dialog.close());

@@ -6,7 +6,8 @@
     "alt": "IMG_8093.HEIC",
     "driveId": "1QOHryeIINAEi4KqLHtgERuIul47FqMac",
     "sourceName": "IMG_8093.HEIC",
-    "mimeType": "image/heif"
+    "mimeType": "image/heif",
+    "rotation": 180
   },
   {
     "id": "image-002",
@@ -234,15 +235,6 @@
     "mimeType": "image/heif"
   },
   {
-    "id": "image-027",
-    "src": "https://drive.google.com/thumbnail?id=1rytd2kewSad4Uwwbnl6pt1V_wGjaV9bB&sz=w1200",
-    "title": "IMG_5325.HEIC",
-    "alt": "IMG_5325.HEIC",
-    "driveId": "1rytd2kewSad4Uwwbnl6pt1V_wGjaV9bB",
-    "sourceName": "IMG_5325.HEIC",
-    "mimeType": "image/heif"
-  },
-  {
     "id": "image-028",
     "src": "https://drive.google.com/thumbnail?id=107IX-2UxYDdrUVcBl8sMHa7nlHKdN7QA&sz=w1200",
     "title": "5e5354c4-0ed2-4e67-94fe-e5d6d6129615.jpg",
@@ -284,15 +276,6 @@
     "title": "f124ecfb-be20-4c37-b5ce-7a7dc924d219.jpg",
     "alt": "f124ecfb-be20-4c37-b5ce-7a7dc924d219.jpg",
     "driveId": "1S9Dm27QX6XqzMTAjjTqYnLjTDxdTtFXZ",
-    "sourceName": "f124ecfb-be20-4c37-b5ce-7a7dc924d219.jpg",
-    "mimeType": "image/jpeg"
-  },
-  {
-    "id": "image-033",
-    "src": "https://drive.google.com/thumbnail?id=1idhhuCoRi0BnkdRVew4aZb02d4u4Eaof&sz=w1200",
-    "title": "f124ecfb-be20-4c37-b5ce-7a7dc924d219.jpg",
-    "alt": "f124ecfb-be20-4c37-b5ce-7a7dc924d219.jpg",
-    "driveId": "1idhhuCoRi0BnkdRVew4aZb02d4u4Eaof",
     "sourceName": "f124ecfb-be20-4c37-b5ce-7a7dc924d219.jpg",
     "mimeType": "image/jpeg"
   },
@@ -510,7 +493,8 @@
     "alt": "IMG_1307.HEIC",
     "driveId": "1NOqescW-xZAPc8krih7xl-Nck5uVbZmN",
     "sourceName": "IMG_1307.HEIC",
-    "mimeType": "image/heif"
+    "mimeType": "image/heif",
+    "rotation": 180
   },
   {
     "id": "image-058",
@@ -582,15 +566,6 @@
     "alt": "IMG-20250827-WA0010.jpg",
     "driveId": "163mzIgqvBBv3PO2GuX-2f066lM0PXwn3",
     "sourceName": "IMG-20250827-WA0010.jpg",
-    "mimeType": "image/jpeg"
-  },
-  {
-    "id": "image-066",
-    "src": "https://drive.google.com/thumbnail?id=1uM8bwFl9q_DyWhg2f4L8xw5jPr17DXlT&sz=w1200",
-    "title": "IMG-20250823-WA0038.jpg",
-    "alt": "IMG-20250823-WA0038.jpg",
-    "driveId": "1uM8bwFl9q_DyWhg2f4L8xw5jPr17DXlT",
-    "sourceName": "IMG-20250823-WA0038.jpg",
     "mimeType": "image/jpeg"
   },
   {
